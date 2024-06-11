@@ -131,6 +131,7 @@
             Margin = new Padding(5);
             Name = "Dashbord";
             Text = "Postmen Clone";
+            Load += Dashbord_Load;
             statusStrip.ResumeLayout(false);
             statusStrip.PerformLayout();
             ResumeLayout(false);

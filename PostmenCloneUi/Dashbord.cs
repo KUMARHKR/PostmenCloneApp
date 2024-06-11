@@ -1,7 +1,11 @@
+using PostmenCloneLibrary;
+
 namespace PostmenCloneUi;
 
 public partial class Dashbord : Form
 {
+
+    private readonly IApiAccess api = new ApiAccess();
     public Dashbord()
     {
         InitializeComponent();
@@ -11,13 +15,17 @@ public partial class Dashbord : Form
     {
 
         //Validate input API key
+        if (!api.IsValidUrl(apiText.Text))
+        {
+            resultsText.Text = "Invalid URL";
+            return;
+        }
 
         try
         {
             systemStatus.Text = "Calling API ...";
 
-            // Sample code  - Replace with api call code
-            await Task.Delay(2000);
+            resultsText.Text = await api.CallApiAsync(apiText.Text);
 
             systemStatus.Text = "Ready";
         }
@@ -29,6 +37,11 @@ public partial class Dashbord : Form
     }
 
     private void resultsText_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    private void Dashbord_Load(object sender, EventArgs e)
     {
 
     }
