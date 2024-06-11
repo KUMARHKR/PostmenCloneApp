@@ -84,7 +84,7 @@
             resultsText.Name = "resultsText";
             resultsText.ReadOnly = true;
             resultsText.ScrollBars = ScrollBars.Both;
-            resultsText.Size = new Size(964, 309);
+            resultsText.Size = new Size(964, 382);
             resultsText.TabIndex = 4;
             resultsText.TextChanged += resultsText_TextChanged;
             // 
