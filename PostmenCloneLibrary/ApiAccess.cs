@@ -22,7 +22,7 @@ namespace PostmenCloneLibrary
             {
                 string json = await response.Content.ReadAsStringAsync();
 
-                if (!formatOutput)
+                if (formatOutput)
                 {
                     var jsonElement = JsonSerializer.Deserialize<JsonElement>(json);
                     json = JsonSerializer.Serialize(jsonElement,
@@ -33,7 +33,6 @@ namespace PostmenCloneLibrary
             }
             else
             {
-
                 return $"Error: {response.StatusCode}";
             }
         }
